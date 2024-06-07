@@ -10,7 +10,14 @@ class Sucursales extends Model
 {
     use HasFactory;
 
-    public function Productos(): HasMany {
-        return $this->hasMany(Productos::class);
+    protected $fillable = [
+        'nombre',
+        'horario_apertura',
+        'horario_cierre',
+
+    ];
+
+    public function productos(): HasMany {
+        return $this->hasMany(Productos::class, 'producto_id');
     }
 }

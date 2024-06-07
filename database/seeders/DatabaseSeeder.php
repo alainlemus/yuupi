@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make("admin")
         ]);
 
-        Sucursales::factory()->create([
+        /*Sucursales::factory()->create([
             'nombre' => 'Sucursal 1',
             'activo' => true,
             'horario_apertura' => '09:00:00',
@@ -48,9 +48,10 @@ class DatabaseSeeder extends Seeder
             'activo' => true,
             'horario_apertura' => '14:00:00',
             'horario_cierre' => '20:00:00'
-        ]);
+        ]);*/
 
-        Categorias::factory()->count(15)->create();
-        Productos::factory()->count(50)->create();
+        Sucursales::factory()->count(20)->create();
+        Categorias::factory()->count(150)->create();
+        Productos::factory()->count(500)->create();
     }
 }

@@ -89,6 +89,8 @@ class UsuariosResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->modalHeading('ELIMINAR USUARIO'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

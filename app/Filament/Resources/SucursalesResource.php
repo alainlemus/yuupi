@@ -3,15 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SucursalesResource\Pages;
-use App\Filament\Resources\SucursalesResource\RelationManagers;
 use App\Models\Sucursales;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\TimePicker;
 
 class SucursalesResource extends Resource
 {
@@ -28,9 +26,9 @@ class SucursalesResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Toggle::make('activo')
                     ->required(),
-                Forms\Components\TextInput::make('horario_apertura')
+                Forms\Components\TimePicker::make('horario_apertura')
                     ->required(),
-                Forms\Components\TextInput::make('horario_cierre')
+                Forms\Components\TimePicker::make('horario_cierre')
                     ->required(),
             ]);
     }
@@ -59,6 +57,8 @@ class SucursalesResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->modalHeading('ELIMINAR SUCURSAL'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

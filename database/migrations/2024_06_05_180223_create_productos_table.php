@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('nombre');
             $table->boolean("activo")->default(true);
             $table->integer("inventario")->default(0);
-            $table->string("codigo_barras")->nullable();
+            $table->string("codigo_de_barras")->nullable();
+            $table->string("imagen")->nullable();
+            $table->float("precio")->default(0.00);
+            $table->text("descripcion")->nullable();
+            $table->foreignId("sucursal_id")->constrained('sucursales');
             $table->foreignId("categoria_id")->constrained('categorias');
             $table->timestamps();
         });

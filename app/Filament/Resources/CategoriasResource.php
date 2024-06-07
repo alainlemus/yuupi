@@ -19,6 +19,12 @@ class CategoriasResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-archive-box';
 
+    protected static ?string $navigationGroup = 'Alta, actualizar y eliminar prodcutos';
+
+    protected static ?string $slug = 'categorias';
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -53,6 +59,8 @@ class CategoriasResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->modalHeading('ELIMINAR CATEGORIA'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
