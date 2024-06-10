@@ -19,7 +19,7 @@ class CategoriasResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-archive-box';
 
-    protected static ?string $navigationGroup = 'Alta, actualizar y eliminar prodcutos';
+    protected static ?string $navigationGroup = 'Productos';
 
     protected static ?string $slug = 'categorias';
 

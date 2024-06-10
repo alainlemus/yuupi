@@ -20,7 +20,7 @@ class ProductosResource extends Resource
 
     protected static ?string $modelLabel = 'Productos';
 
-    protected static ?string $navigationGroup = 'Alta, actualizar y eliminar prodcutos';
+    protected static ?string $navigationGroup = 'Productos';
 
     protected static ?string $slug = 'productos';
 

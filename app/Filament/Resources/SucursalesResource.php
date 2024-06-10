@@ -17,6 +17,8 @@ class SucursalesResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
+    protected static ?string $navigationGroup = 'Sucursales';
+
     public static function form(Form $form): Form
     {
         return $form
