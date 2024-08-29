@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Productos extends Model
 {
@@ -26,8 +27,8 @@ class Productos extends Model
         'imagen' => 'array'
     ];
 
-    public function sucursal(): BelongsTo{
-        return $this->belongsTo(Sucursales::class, 'sucursal_id');
+    public function sucursal(): BelongsToMany{
+        return $this->belongsToMany(Sucursales::class, 'sucursal_id');
     }
 
     public function categoria(): BelongsTo{

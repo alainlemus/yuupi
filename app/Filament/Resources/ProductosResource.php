@@ -36,9 +36,6 @@ class ProductosResource extends Resource
                         Forms\Components\TextInput::make('nombre')
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\Select::make('sucursal_id')
-                            ->relationship('sucursal','nombre')
-                            ->required(),
                         Forms\Components\Select::make('categoria_id')
                             ->relationship('categoria','nombre')
                             ->required(),
@@ -81,7 +78,6 @@ class ProductosResource extends Resource
                 Tables\Columns\TextColumn::make('nombre')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('imagen')
-
                     ->stacked()
                     ->wrap()
                     ->limit(3)
@@ -92,13 +88,11 @@ class ProductosResource extends Resource
                     ->prefix('$')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('inventario')
+                    ->label('Inventario general')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('codigo_de_barras')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('sucursal_id')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('categoria_id')
                     ->numeric()
                     ->sortable(),
@@ -119,7 +113,7 @@ class ProductosResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
                 ]),
             ]);
     }

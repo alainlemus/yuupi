@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("imagen")->nullable();
             $table->float("precio")->default(0.00);
             $table->text("descripcion")->nullable();
-            $table->foreignId("sucursal_id")->constrained('sucursales');
+            //$table->foreignId("sucursal_id")->constrained('sucursales');
             $table->foreignId("categoria_id")->constrained('categorias');
             $table->timestamps();
         });

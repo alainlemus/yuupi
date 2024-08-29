@@ -24,7 +24,7 @@ class ProductosFactory extends Factory
             'inventario' => fake()->numberBetween(0,100),
             'codigo_de_barras' => fake()->numerify('############'),
             'descripcion' => fake()->text(),
-            'sucursal_id' => Sucursales::inRandomOrder()->first()->id,
+            //'sucursal_id' => Sucursales::inRandomOrder()->first()->id,
             'categoria_id' => Categorias::inRandomOrder()->first()->id,
         ];
     }

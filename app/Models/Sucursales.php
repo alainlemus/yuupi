@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Sucursales extends Model
 {
@@ -17,7 +17,8 @@ class Sucursales extends Model
 
     ];
 
-    public function productos(): HasMany {
-        return $this->hasMany(Productos::class, 'producto_id');
+    public function producto(): BelongsToMany {
+        return $this->belongsToMany(Productos::class, 'producto_id');
     }
+
 }

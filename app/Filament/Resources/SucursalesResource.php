@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SucursalesResource\Pages;
+use App\Models\Productos;
 use App\Models\Sucursales;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -23,15 +24,19 @@ class SucursalesResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nombre')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Toggle::make('activo')
-                    ->required(),
-                Forms\Components\TimePicker::make('horario_apertura')
-                    ->required(),
-                Forms\Components\TimePicker::make('horario_cierre')
-                    ->required(),
+                Forms\Components\Section::make()
+                    ->schema([
+                        Forms\Components\TextInput::make('nombre')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\Toggle::make('activo')
+                            ->required(),
+                        Forms\Components\TimePicker::make('horario_apertura')
+                            ->required(),
+                        Forms\Components\TimePicker::make('horario_cierre')
+                            ->required(),
+                    ])
+
             ]);
     }
 
